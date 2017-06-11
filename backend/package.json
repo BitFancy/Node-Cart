@@ -11,5 +11,8 @@
     "Cart"
   ],
   "author": "Piotr Rotyński",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "restify": "^4.3.0"
+  }
 }
