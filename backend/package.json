@@ -1,0 +1,15 @@
+{
+  "name": "nodecart-backend",
+  "version": "0.0.0",
+  "description": "Backend server of e-commerce experience based on node.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "Cart"
+  ],
+  "author": "Piotr Rotyński",
+  "license": "ISC"
+}
