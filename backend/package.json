@@ -13,6 +13,6 @@
   "author": "Piotr Rotyński",
   "license": "ISC",
   "dependencies": {
-    "restify": "^4.3.0"
+    "express": "^4.15.3"
   }
 }
