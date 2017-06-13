@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && node ./bin/server.js"
+    "start": "npm install && node ./bin/server.js",
+    "mongo": "mongod.exe"
   },
   "keywords": [
     "Node",
@@ -15,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.3",
+    "mongoose": "^4.10.6",
     "morgan": "^1.8.2"
   }
 }
