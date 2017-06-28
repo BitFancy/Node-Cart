@@ -4,7 +4,12 @@ var mongoose = require('mongoose');
 var categoryRepository = require('./repository');
 
 mongoose.connect('mongodb://localhost/nodeCart_test');
+mongoose.Promise = require('bluebird');
 
+
+router.get('/category/:cat_key/', function (req, res) {
+    return categoryRepository.getCategoryElements(req,res)
+})
 
 router.get('/category', function (req, res) {
     return categoryRepository.list(req, res)

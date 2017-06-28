@@ -6,36 +6,34 @@ exports.create = function (req, res) {
         name: req.body.name,
         description: req.body.description,
         price: req.body.price,
-        path : req.body.path
+        cat_key: req.body.cat_key
     });
 
-    entry.save(function (err, entry) {
-        if (err) {
+    entry.save()
+        .then(function (entry) {
+            res.status(200).send(entry)
+        })
+        .catch(function (err) {
             console.log(err);
             res.status(422).send(err.name)
-        }
-        else {
-            res.status(200).send(entry);
-        }
-
-    });
+        })
 };
 
 
 exports.listAll = function (req, res) {
-    let query = Product.find().exec(function (err, result) {
-        res.json(result);
-    })
+    Product.find()
+        .then(function (products) {
+            res.json(products);
+        })
 };
 
 
 exports.listAllProductsFromCategory = function (req, res) {
-    console.log("from category");
-    let query = Product.find({path : /,Cameras,/}).exec(function (err, result) {
-        if(err){
+    return Product.find({cat_key: 35950})
+        .then(function (result) {
+           res.json(result);
+        })
+        .catch(function (err) {
             console.log(err);
-        }
-        console.log(query);
-        res.json(result);
-    })
+        });
 };
