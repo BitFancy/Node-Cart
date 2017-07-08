@@ -28,19 +28,21 @@ exports.list = function (req, res) {
 exports.getCategoryElements = function (req, res) {
     Category.find({key: req.params.cat_key})
         .then(function (category) {
+            console.log(category);
             let categoryName = category[0].name;
-            let re = new RegExp("," + categoryName + ",");
+
+            let re = new RegExp(category[0].path + categoryName + ",");
             return Category.find({path: re})
         })
         .then(function (subcategories) {
             if (!subcategories || !subcategories.length) {
                 return Product.find({cat_key: req.params.cat_key})
-                    .then(function (products) {
-                        res.json(products);
-                    })
             }
             else {
                 res.json(subcategories);
             }
+        })
+        .then(function (products) {
+            res.json(products);
         })
 }
