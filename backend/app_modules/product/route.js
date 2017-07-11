@@ -11,9 +11,6 @@ router.get('/product', function (req, res) {
     return productRepository.listAll(req, res)
 });
 
-router.get('/category/:category/product', function (req, res) {
-    return productRepository.listAllProductsFromCategory(req, res)
-});
 
 router.post('/product', function (req, res) {
     return productRepository.create(req, res)
