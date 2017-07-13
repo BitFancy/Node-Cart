@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha tests/**/*.js",
     "start": "npm install && node ./bin/server.js",
-    "mongo": "mongod.exe"
+    "mongo": "mongod.exe",
+    "jest": "jest"
   },
   "keywords": [
     "Node",
@@ -23,7 +24,9 @@
   },
   "devDependencies": {
     "chai": "^4.0.2",
+    "jest": "^20.0.4",
     "mocha": "^3.4.2",
+    "should": "^11.2.1",
     "supertest": "^3.0.0"
   }
 }
