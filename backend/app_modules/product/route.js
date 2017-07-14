@@ -1,10 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
 var productRepository = require('./repository');
 
-mongoose.connect('mongodb://localhost/nodeCart_test');
-mongoose.set('debug', true);
+
 
 
 router.get('/product', function (req, res) {

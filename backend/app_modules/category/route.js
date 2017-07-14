@@ -3,7 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var categoryRepository = require('./repository');
 
-mongoose.connect('mongodb://localhost/nodeCart_test');
+
 mongoose.Promise = require('bluebird');
 
 
