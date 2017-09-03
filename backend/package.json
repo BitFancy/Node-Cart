@@ -4,7 +4,7 @@
   "description": "Backend server of e-commerce experience based on node.js",
   "main": "server.js",
   "scripts": {
-    "test": "mocha tests/**/*.js",
+    "test": "jest",
     "start": "npm install && node ./bin/server.js",
     "mongo": "mongod.exe",
     "jest": "jest"

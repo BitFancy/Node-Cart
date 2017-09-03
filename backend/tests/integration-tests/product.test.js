@@ -2,6 +2,8 @@
 const app = require("../../app");
 const should = require('should');
 const request = require("supertest");
+const seedFile = require("./seeds/products.seed");
+const mongoUtils = require("../../bin/mongo-utils");
 
 describe('/product', function () {
 
@@ -9,8 +11,7 @@ describe('/product', function () {
     describe('GET /product', function () {
 
         beforeAll(() => {
-           return mongoUtils.clearDb()
-               .then.mongoUtils.seedDb(seedFile);
+           mongoUtils.seedDb(seedFile);
         });
 
 
@@ -20,7 +21,7 @@ describe('/product', function () {
                 .get('/product/')
                 .expect(200)
                 .end(function (err, res) {
-                    expect(res.body).toHaveLength(5);
+                    expect(res.body).toHaveLength(2);
                     if (err) {
                         done(err);
                     }
