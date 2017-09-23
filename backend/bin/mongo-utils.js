@@ -1,11 +1,6 @@
 "use strict";
 const Promise = require("bluebird");
-const Product = require("../app_modules/product/model");
-
-const MongoClient = require('mongodb').MongoClient;
-
-
-const seedJson = require("../tests/integration-tests/seeds/basic.seed");
+const seedJson = require("../tests/api-tests/seeds/basic.seed");
 
 
 

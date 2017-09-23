@@ -14,8 +14,8 @@ describe('/product', function () {
             .then((db) => new MongoUtils(db))
             .then((mc) => mc.seedDb(seedFile))
         );
-    
-        test.only('should get all products from db', function (done) {
+
+        test('should get all products from db', function (done) {
             request(app)
                 .get('/product/')
                 .expect(200)
@@ -26,16 +26,43 @@ describe('/product', function () {
                     }
                     else
                         done();
-    
+
                 })
         });
-    
-    
-    })
+
+        test('should create product when data is validable', function (done) {
+            request(app)
+                .post('/product/')
+                .send({ name: "testProduct", description: "This is description of test product", price: 100, cat_key: 97388 })
+                .expect(200)
+                .end(function (err, res) {
+                    if (err) {
+                        done(err);
+                    }
+                    else
+                        res.body.should.have.ownProperty('_id');
+                    done();
+
+                })
+        });
+
+        test('should throw Error 422 when no category provided', function () {
+            return request(app)
+                .post('/product/')
+                .send({ name: "testProduct", description: "This is description of test product", price: 100 })
+                .then((res) => {
+                    expect(res).not.toBe(null);
+                    expect(res.status).toBe(422);
+                })
+            });
+    });
+
+
+})
 
 
 
-    
-});
+
+
 
 

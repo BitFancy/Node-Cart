@@ -14,7 +14,6 @@ exports.create = function (req, res) {
             res.status(200).send(entry)
         })
         .catch(function (err) {
-            console.log(err);
             res.status(422).send(err.name)
         })
 };
