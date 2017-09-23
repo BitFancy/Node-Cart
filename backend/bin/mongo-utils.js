@@ -52,10 +52,4 @@ class MongoUtils {
 
 }
 
-
-return MongoClient.connect('mongodb://localhost/nodeCart_test')
-    .then((db) => new MongoUtils(db))
-    .then((mc) => mc.seedDb(seedJson))
-
-
 module.exports = MongoUtils;
