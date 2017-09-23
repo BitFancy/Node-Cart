@@ -1,27 +1,61 @@
 "use strict";
 const Promise = require("bluebird");
-
 const Product = require("../app_modules/product/model");
 
-const MongoUtils = (function () {
-    const clearDb = function () {
-        // public
-    };
+const MongoClient = require('mongodb').MongoClient;
 
-    const seedDb = function (seedJson) {
 
-        Product.collection.drop();
-        seedJson.products.forEach((singleProductDefinition) => {
-            let newTestProduct = new Product(singleProductDefinition);
-            newTestProduct.save();
-        })
-    };
+const seedJson = require("../tests/integration-tests/seeds/basic.seed");
 
-    return {
-        clearDb: clearDb,
-        seedDb: seedDb
-    };
 
-})();
+
+class MongoUtils {
+
+    constructor(db) {
+        this._db = db;
+    }
+
+    getAllCollectionsAsync() {
+        return Promise.resolve(this._db.collections());
+    }
+
+    deleteCollectionAsync(collectionName) {
+        return Promise.resolve(this._db.dropCollection(collectionName))
+    }
+
+    retrieveCollectionName(collection) {
+        return collection.s.name;
+    }
+
+    retrieveCollectionsFromSeedFile(seedFile){
+        return Object.keys(seedJson);
+    }
+
+    createCollectionAsync(collectionName) {
+        return this._db.createCollection(collectionName)
+            
+    }
+
+    fillCollectionAsync(collectionName, dataArray){
+        return this._db.collection(collectionName).insertMany(dataArray);
+    
+    }
+
+    seedDb(seedJson) {
+        return this.getAllCollectionsAsync()
+            .then((collections) => collections.map((collection) => this.retrieveCollectionName(collection)))
+            .each((collectionName) => this.deleteCollectionAsync(collectionName))
+            .then(() => this.retrieveCollectionsFromSeedFile(seedJson))
+            .each((collectionName) => this.createCollectionAsync(collectionName))
+            .each((collectionName) => this.fillCollectionAsync(collectionName, seedJson[collectionName]))
+    }
+
+}
+
+
+return MongoClient.connect('mongodb://localhost/nodeCart_test')
+    .then((db) => new MongoUtils(db))
+    .then((mc) => mc.seedDb(seedJson))
+
 
 module.exports = MongoUtils;

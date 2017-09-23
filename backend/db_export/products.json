@@ -1,0 +1,49 @@
+/* 1 */
+{
+    "_id" : ObjectId("594bead245d552080814ba00"),
+    "name" : "Sony Alpha DX545",
+    "description" : "Flag-model of japan manufacturer",
+    "price" : 225,
+    "cat_key" : 97388,
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5953e874d8f43412fcb8c7bf"),
+    "name" : "Huawei P8",
+    "description" : "Very good smartphone",
+    "price" : 34.2,
+    "cat_key" : 35950,
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5953e883d8f43412fcb8c7c0"),
+    "name" : "Huawei PP",
+    "description" : "Very good smartphone better than P8",
+    "price" : 34.2,
+    "cat_key" : 35950,
+    "__v" : 0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5953e8b2d8f43412fcb8c7c1"),
+    "name" : "Iphone S7",
+    "description" : "  Gorillag glass included",
+    "price" : 34.2,
+    "cat_key" : 75789,
+    "__v" : 0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5953f29084234c0e3819addd"),
+    "name" : "Extra battery pack",
+    "description" : "Great for holiday",
+    "price" : 22.5,
+    "cat_key" : 81113,
+    "__v" : 0
+}
