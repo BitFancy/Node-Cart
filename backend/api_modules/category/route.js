@@ -11,7 +11,7 @@ router.get('/category/:cat_key/', function (req, res) {
     return categoryRepository.getCategoryElements(req,res)
 })
 
-router.get('/category', function (req, res) {
+router.get('/categories', function (req, res) {
     return categoryRepository.list(req, res)
 });
 
