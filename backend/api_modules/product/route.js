@@ -3,8 +3,6 @@ var router = express.Router();
 var productRepository = require('./repository');
 
 
-
-
 router.get('/product', function (req, res) {
     return productRepository.listAll(req, res)
 });
