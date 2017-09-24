@@ -6,7 +6,7 @@ const MongoUtils = require("../../bin/mongo-utils");
 const MongoClient = require('mongodb').MongoClient;
 
 describe('/category', function () {
-  
+
     beforeAll(() => MongoClient.connect('mongodb://localhost/nodeCart_test')
         .then((db) => new MongoUtils(db))
         .then((mc) => mc.seedDb(seedFile))
@@ -26,15 +26,14 @@ describe('/category', function () {
 
     });
 
-    describe('POST /category', function () {
-        test('should create a category', function () {
+    describe.only('POST /category', function () {
+        test.only('should create a category in root level', function () {
             return request(app)
-                .get('/categories/')
-                .send({})
+                .post('/category/')
+                .send({name: "test category", path: "null" })
                 .expect(200)
                 .then((res) => {
-                    expect(res.body).toHaveLength(12);
-
+                    console.log(res.error.text)
                 })
         });
     });
