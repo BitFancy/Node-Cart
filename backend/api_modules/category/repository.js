@@ -13,7 +13,7 @@ exports.create = function (req, res) {
             res.status(200).send(entry);
         })
         .catch(function (err) {
-            res.status(422).send(err.name)
+            res.status(422).send(err.name + " : " + err.message)
         })
 };
 

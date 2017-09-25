@@ -1,7 +1,7 @@
 {
   "name": "nodecart-backend",
   "version": "0.0.0",
-  "description": "Backend server of e-commerce experience based on node.js",
+  "description": "Having fun with mongo and node backend as an e-commerce experience",
   "main": "server.js",
   "scripts": {
     "test": "jest --verbose --runInBand --silent=false",
