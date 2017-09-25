@@ -32,7 +32,5 @@ exports.listAllProductsFromCategory = function (req, res) {
         .then(function (result) {
            res.json(result);
         })
-        .catch(function (err) {
-            console.log(err);
-        });
+        
 };

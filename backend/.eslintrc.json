@@ -3,7 +3,8 @@
         "browser": true,
         "commonjs": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jasmine" : true
     },
     "parserOptions": {
         "ecmaFeatures": {
@@ -19,5 +20,7 @@
         "no-unused-vars": "warn",
         "constructor-super": "warn",
         "valid-typeof": "warn"
-    }
+    },
+    "plugins": ["jest"],
+    "extends": ["angular", "eslint:recommended", "plugin:jasmine/recommended"]
 }
