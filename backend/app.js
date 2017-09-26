@@ -4,8 +4,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const app = express();
-const product = require("./api_modules/product/route.js");
-const category = require("./api_modules/category/route.js");
+const product = require("./api/product/route.js");
+const category = require("./api/category/route.js");
 const mongoose = require('mongoose');
 mongoose.set('debug', true);
 
