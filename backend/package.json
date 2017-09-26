@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jest --verbose --runInBand --silent=false",
-    "start": "npm install && node ./bin/server.js",
+    "start": "npm install && node ./scripts/server.js",
     "mongo": "mongod.exe"
   },
   "keywords": [
