@@ -5,7 +5,7 @@ const seedFile = require("./seeds/basic.seed");
 const MongoUtils = require("../../scripts/mongo-utils");
 const MongoClient = require('mongodb').MongoClient;
 
-describe('/product', function () {
+describe.skip('/product', function () {
 
     beforeAll(() => MongoClient.connect('mongodb://localhost/nodeCart_test')
         .then((db) => new MongoUtils(db))

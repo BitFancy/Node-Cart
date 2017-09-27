@@ -2,46 +2,50 @@
 var Category = require('./model');
 var Product = require('../product/model');
 
-exports.create = function (req, res) {
+exports.create = function (category) {
     var entry = new Category({
-        name: req.body.name,
-        path: req.body.path,
+        name: category.name,
+        path: category.path,
         key: Math.floor(Math.random() * 90000) + 10000
     });
-    entry.save()
-        .then(function (entry) {
-            res.status(200).send(entry);
-        })
-        .catch(function (err) {
-            res.status(422).send(err.name + " : " + err.message)
-        })
+    return entry.save()
 };
 
 
-exports.list = function (req, res) {
-    Category.find().sort({path: 1})
-        .then(function (result) {
-            res.json(result);
-        })
+exports.list = function () {
+    Category.find().sort({ path: 1 })
 };
 
-exports.getCategoryElements = function (req, res) {
-    Category.find({key: req.params.cat_key})
-        .then(function (category) {
-            let categoryName = category[0].name;
 
-            let re = new RegExp(category[0].path + categoryName + ",");
-            return Category.find({path: re})
-        })
-        .then(function (subcategories) {
+exports.getCategoryByKey = function (key) {
+    return Category.find({ key: key });
+}
+
+
+exports.getAllSubcategories = function (parentCategory) {
+    let categoryName = parentCategory[0].name;
+    let categoryPath = parentCategory[0].path !== "null" ? parentCategory[0].path : "";
+    console.log(categoryPath);
+    let re = new RegExp(categoryPath + categoryName + ",");
+    return Category.find({ path: re })
+}
+
+exports.getCategoryElements = function (categoryKey) {
+    return this.getCategoryByKey(categoryKey)
+        .then((category) => testArrayAgainstNotFound(array))
+        .then((category) => this.getAllSubcategories(category))
+        .then((subcategories) => {
             if (!subcategories || !subcategories.length) {
-                return Product.find({cat_key: req.params.cat_key})
+                return Product.find({ cat_key: categoryKey })
             }
             else {
-                res.json(subcategories);
+                return subcategories;
             }
         })
-        .then(function (products) {
-            res.json(products);
-        })
 }
+
+function testArrayAgainstNotFound(array) {
+    if (!array || !array.length) throw new Error('Category with given key does not exist');
+    else return array
+}
+

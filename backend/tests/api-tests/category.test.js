@@ -69,7 +69,7 @@ describe('/category', function () {
         });
     });
 
-    describe('GET /category/:cat_key/', function () {
+    describe('GET /category/:key/', function () {
         
                 test('should get all subcategories when queried category is not end category', function () {
                     return request(app)
