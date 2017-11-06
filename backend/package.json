@@ -1,0 +1,28 @@
+{
+  "name": "nodecart-backend",
+  "version": "0.0.0",
+  "description": "Having fun with mongo and node backend as an tiny e-commerce",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest --verbose --runInBand --silent=false",
+    "start": "npm install && node ./scripts/server.js",
+    "mongo": "mongod.exe"
+  },
+  "keywords": [
+    "Node",
+    "Cart"
+  ],
+  "author": "piorot",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.6",
+    "morgan": "^1.8.2"
+  },
+  "devDependencies": {
+    "jest": "^20.0.4",
+    "supertest": "^3.0.0"
+  }
+}

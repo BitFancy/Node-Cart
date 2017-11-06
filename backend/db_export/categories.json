@@ -1,0 +1,63 @@
+/* 1 */
+{
+    "name" : "Electronics",
+    "path" : "null",
+    "key" : "59864"
+},
+{
+
+    "name" : "Smartphones",
+    "path" : ",Electronics,",
+    "key" : "59867"
+},
+{
+    "name" : "Cameras",
+    "path" : ",Electronics,",
+    "key" : "54864"
+},
+{
+    "name" : "Analog Cameras",
+    "path" : ",Electronics,Cameras,",
+    "key" : "79066"
+},
+{
+    "name" : "Digital Cameras",
+    "path" : ",Electronics,Cameras,",
+    "key" : "42736"
+},
+{
+    "name" : "Miscellaneous",
+    "path" : ",Electronics,Cameras,",
+    "key" : "81113",
+},
+{
+    "name" : "Miscellaneous",
+    "path" : ",Electronics,Smartphones,",
+    "key" : "63091",
+},
+{
+    "name" : "Huawei",
+    "path" : ",Electronics,Smartphones,",
+    "key" : "35950"
+},
+{
+    "name" : "IPhone",
+    "path" : ",Electronics,Smartphones,",
+    "key" : "75789"
+},
+{
+    "name" : "BatteryPacks",
+    "path" : ",Electronics,Cameras,Miscellaneous,",
+    "key" : "25357"
+    
+}
+{
+    "name" : "Grips",
+    "path" : ",Electronics,Cameras,Miscellaneous,",
+    "key" : "76000"
+}
+{
+    "name" : "Bags",
+    "path" : ",Electronics,Cameras,Miscellaneous,",
+    "key" : "70778"
+}
